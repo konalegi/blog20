@@ -1,0 +1,8 @@
+
+%label{'ng-class'=>'{error: form.input.$invalid && form.input.$dirty}'}
+  {{ label }}
+  {{ form.input.$error }}
+  %ng-form{ 'name'=>'form' }
+    %div{ 'style' => 'width: 100%' }
+    %small.error{ 'ng-show'=>'form.input.$error.required && form.input.$dirty' }
+      {{ validations.presence_validator.message_t }}

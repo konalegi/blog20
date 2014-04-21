@@ -1,0 +1,1 @@
+ class @AngularService extends AngularObject

@@ -1,0 +1,15 @@
+
+%label{'ng-class'=>'{error: form.input.$invalid }'}
+  {{ label }}
+  {{ form.input.$error }}
+  %ng-form{ 'name'=>'form' }
+    %input{ type: 'text','ng-model'=>'model','ng-class'=>'{error: form.input.$invalid }','name'=>'input', 'placeholder'=>'{{placeholder}}' }
+    %small{ 'ng-class'=>'{error: form.input.$invalid }','ng-show'=>'onerror' }
+      Invalid input
+    %small.error{ 'ng-show'=>'form.input.$error.required' }
+      {{ validations.presence_validator.message_t }}
+    %small.error{ 'ng-show'=>'form.input.$error.length' }
+      {{ validations.length_validator.message_t }}
+    %small.error{ 'ng-show'=>'form.input.$error.numericality' }
+      {{ validations.numericality_validator.message_t }}
+

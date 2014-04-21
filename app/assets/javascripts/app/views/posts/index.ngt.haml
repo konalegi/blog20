@@ -1,0 +1,32 @@
+%a.btn.btn-primary{ href: "#/posts/create",ng:{cloak:'', show: 'acl.posts.create_allowed' } }
+  %span.glyphicon.glyphicon-plus
+  Create Post
+
+
+%div{ng: {repeat: 'post in posts' }}
+  %h1
+    %a{href: "#/posts/{{ post.id }}"} {{ post.title }}
+  %p.lead
+    by
+    %a{href: "#/users/{{ post.user_id }}"} {{ post.user_name }}
+  %hr/
+  %p
+    %span.glyphicon.glyphicon-time
+    Posted on {{ post.screen_created_at }}
+  %p
+    {{ post.preview }}
+  %a.btn.btn-primary{ href: "#/posts/{{ post.id }}" }
+    Read More
+    %span.glyphicon.glyphicon-chevron-right
+  %a.btn.btn-primary{ href:  "#/posts/edit/{{ post.id }}", ng:{cloak:'', show: 'post.acl.allow_update' } }
+    Edit
+    %span.glyphicon.glyphicon-edit
+  %a.btn.btn-primary{ ng:{cloak:'', show: 'post.acl.allow_destroy', click: 'delete(post,$index)' } }
+    Delete
+    %span.glyphicon.glyphicon-trash
+  %hr
+%ul.pager
+  %li.previous
+    %a{href: "#"} ← Older
+  %li.next
+    %a{href: "#"} Newer →

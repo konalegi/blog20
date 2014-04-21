@@ -1,0 +1,14 @@
+%label{'ng-class'=>'{error: form.input.$invalid && form.input.$dirty }'}
+  {{ label }}
+  {{ form.input.$error }}
+  %ng-form{ 'name'=>'form' }
+    %input.form-control{ type: '{{type}}','ng-model'=>'model','ng-class'=>'{error: form.input.$invalid && form.input.$dirty }','name'=>'input', 'placeholder'=>'{{placeholder}}' }
+    %small.error{ 'ng-show'=>'form.input.$error.required && form.input.$dirty' }
+      {{ validations.presence_validator.message_t }}
+    %small.error{ 'ng-show'=>'form.input.$error.length && form.input.$dirty' }
+      {{ validations.length_validator.message_t }}
+    %small.error{ 'ng-show'=>'form.input.$error.numericality && form.input.$dirty' }
+      {{ validations.numericality_validator.message_t }}
+    %small.error{ 'ng-show'=>'form.input.$error.format && form.input.$dirty' }
+      {{ validations.format_validator.message_t }}
+%br

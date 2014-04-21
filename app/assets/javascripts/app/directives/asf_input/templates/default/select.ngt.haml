@@ -1,0 +1,9 @@
+%label{'ng-class'=>'{error: form.input.$invalid && form.input.$dirty}'}
+  {{ label }}
+  {{ form.input.$error }}
+  %ng-form{ 'name'=>'form' }
+    %select{'ng-options' => 'list_item.key as list_item.screen_name for list_item in list', 'name'=>'input', 'ng-model'=>'model','ng-class'=>'{error: form.input.$invalid && form.input.$dirty }'  }
+      %option{ value: '', disabled: '', selected:'' }
+        {{ placeholder }}
+    %small.error{ 'ng-show'=>'form.input.$error.required && form.input.$dirty' }
+      {{ validations.presence_validator.message_t }}

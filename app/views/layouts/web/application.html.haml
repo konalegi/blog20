@@ -1,0 +1,35 @@
+!!!
+%html
+  %head
+    %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}/
+    %meta{content: "", name: "description"}/
+    %meta{content: "", name: "author"}/
+    %title Blog Home Template for Bootstrap 3
+    = stylesheet_link_tag    'application', media: 'all'
+    = csrf_meta_tags
+  %body{ 'ng-app'=>'App' }
+    %nav.navbar.navbar-inverse.navbar-fixed-top{role: "navigation",'ng-controller'=>'NavigationController'}
+      .container
+        .navbar-header
+          %button.navbar-toggle{"data-target" => ".navbar-ex1-collapse", "data-toggle" => "collapse", type: "button"}
+            %span.sr-only Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %a.navbar-brand
+            Start Bootstrap
+        / Collect the nav links, forms, and other content for toggling
+        .collapse.navbar-collapse.navbar-ex1-collapse
+          %ul.nav.navbar-nav.left
+            %li{ ng: { class: "{ active: isActive('/posts') }" }}
+              %a{ href: "#/posts" } Main
+            %li{ ng: { class: "{ active: isActive('/about') }" }}
+              %a{href: "#/about"} About
+            %li{ ng: { class: "{ active: isActive('/contact') }" }}
+              %a{href: "#/contact"} Contact
+            %li{ ng: { class: "{ active: isActive('/login') }", cloak: '', show: '!isAuth' }}
+              %a{href: "#/login"} Login
+            %li{ ng: { class: "{ active: isActive('/logout') }", cloak: '', show: 'isAuth' }}
+              %a{href: "#/logout"} Logout
+    = yield
+    = javascript_include_tag 'application'

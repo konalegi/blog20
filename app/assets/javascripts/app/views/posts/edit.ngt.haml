@@ -1,0 +1,10 @@
+
+%asf-form{ 'ng-model' => 'post', name: 'post_form', 'form-name' => 'PostType' }
+  %asf-input{ name:'title', label: 'Title', placeholder: 'Enter Title' }
+  %asf-input{ element_type: 'textarea', name:'preview', label: 'Preview', placeholder: 'Enter Preview' }
+  %asf-input{ element_type: 'textarea', name:'full_text', label: 'Полный текск', placeholder: 'Enter Full Text' }
+
+  %asf-button{ name: 'Login', label: 'ok', disability: 'true', 'on-action' => 'edit(post)' }
+
+%span.label.error{'ng-show' => 'errors.password'}
+  {{ errors.password}}

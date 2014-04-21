@@ -1,0 +1,10 @@
+
+{{ InstanceObject }}
+%asf-form{ 'ng-model' => 'InstanceObject', name: 'login_form', 'form-name' => 'UserSignInType' }
+  %asf-input{ name:'email', label: 'E-Mail', placeholder: 'Введите E-Mail' }
+  %asf-input{ name:'password', label: 'Пароль', placeholder: 'Введите Пароль' }
+
+  %asf-button{ name: 'Login', label: 'ok', disability: 'true', 'on-action' => 'login(InstanceObject)' }
+
+%span.label.error{'ng-show' => 'errors.password'}
+  {{ errors.password}}
